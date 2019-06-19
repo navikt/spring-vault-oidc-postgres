@@ -1,0 +1,22 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  '*'
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql=false
+    hibernate:
+      ddl-auto: create
+  flyway:
+    enabled: false
+  http:
+    log-request-details: false
+

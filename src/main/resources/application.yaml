@@ -1,0 +1,65 @@
+http:
+  proxy: http://webproxy-nais.nav.no:8088
+
+no.nav.security.oidc:
+  issuers:  selvbetjening
+  issuer:
+     selvbetjening:
+       discoveryurl: <Set from FASIT>
+        accepted_audience: <Set from FASIT>
+historikk:
+  oppslag:
+    enabled: true
+
+info:
+  app:
+    version: '@project.version@'
+    build:
+      time: '@timestamp@'
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: true
+  endpoints:
+    web:
+      exposure:
+        include:  info, health, metrics, prometheus
+  health:
+    diskspace:
+      enabled: false
+
+server:
+  servlet:
+    context-path:  /api
+  use-forward-headers: true
+
+spring:
+  cache:
+    cache-names: aktør
+    caffeine:
+      spec: maximumSize=100,expireAfterAccess=3600s
+  datasource:
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    hibernate:
+      ddl-auto: none
+  flyway:
+    baselineOnMigrate: false
+    enabled: true
+  application:
+    name: spring-vault-oidc-postgres
+  jackson:
+    default-property-inclusion:  non-absent
+    mapper:
+      accept-case-insensitive-properties: true
+    deserialization:
+      accept-single-value-as-array: true
+      fail-on-unknown-properties: true
+    serialization:
+      write-empty-json-arrays: false
+      fail-on-empty-beans: false
+  main:
+    banner-mode: 'off'
