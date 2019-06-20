@@ -18,8 +18,8 @@ import org.springframework.web.client.RestOperations;
 import java.util.Arrays;
 
 @Configuration
-public class RestClientConfiguration {
-    private static final Logger LOG = LoggerFactory.getLogger(RestClientConfiguration.class);
+public class RestClientConfig {
+    private static final Logger LOG = LoggerFactory.getLogger(RestClientConfig.class);
 
     @Bean
     @Primary

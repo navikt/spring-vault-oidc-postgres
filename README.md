@@ -20,5 +20,10 @@ Merk, det er klassen i test-scope som skal startes, ikke den som ligger
 i default scope.
 
 
+### Swagger
+Spring Boot configurerer swagger magically:
+
+`http://localhost:8080/api/swagger-ui.html`
+
 
 

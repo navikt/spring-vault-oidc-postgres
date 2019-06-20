@@ -1,11 +1,8 @@
 package no.nav.academy.exapp.routes;
 
 import no.nav.academy.exapp.repositories.HelloRepository;
-import no.nav.academy.exapp.repositories.dto.JPAHelloMelding;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import no.nav.academy.exapp.repositories.dto.JPAHelloMessage;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,16 +20,15 @@ public class HelloController {
     }
 
 
-    @GetMapping("/message")
-    List<JPAHelloMelding> message() {
-        List<JPAHelloMelding> all = dao.findAll();
+    @GetMapping("/messages")
+    List<JPAHelloMessage> getAllMessages() {
+        List<JPAHelloMessage> all = dao.findAll();
         System.out.println(all.toString());
         return all;
     }
-    @PostMapping("/message")
-    Boolean insertMessage(){
-        JPAHelloMelding s = new JPAHelloMelding();
-        s.setMessage("hello");
+
+    @PostMapping("/messages")
+    Boolean insertNewMessage(@RequestBody JPAHelloMessage s){
         dao.saveAndFlush(s);
         return true;
     }

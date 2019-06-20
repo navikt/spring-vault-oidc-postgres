@@ -9,7 +9,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "hello")
-public class JPAHelloMelding {
+public class JPAHelloMessage {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;

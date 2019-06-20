@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 @ConditionalOnProperty("spring.flyway.enabled")
-public class FlywayConfiguration {
+public class FlywayConfig {
 
     @Bean
     @Profile("!dev")
