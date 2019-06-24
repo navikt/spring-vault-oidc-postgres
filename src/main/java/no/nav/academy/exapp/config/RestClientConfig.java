@@ -42,11 +42,6 @@ public class RestClientConfig {
             }
 
             @Override
-            public void setOIDCValidationContext(OIDCValidationContext oidcValidationContext) {
-
-            }
-
-            @Override
             public Object getRequestAttribute(String name) {
                 return null;
             }
@@ -54,6 +49,11 @@ public class RestClientConfig {
             @Override
             public OIDCValidationContext getOIDCValidationContext() {
                 return null;
+            }
+
+            @Override
+            public void setOIDCValidationContext(OIDCValidationContext oidcValidationContext) {
+
             }
         };
     }

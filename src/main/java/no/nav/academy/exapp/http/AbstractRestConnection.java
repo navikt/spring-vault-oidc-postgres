@@ -14,8 +14,8 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 public abstract class AbstractRestConnection {
     private static final String RESPONS = "Respons: {}";
-    private final RestOperations restOperations;
     private static final Logger LOG = LoggerFactory.getLogger(AbstractRestConnection.class);
+    private final RestOperations restOperations;
 
     public AbstractRestConnection(RestOperations restOperations) {
         this.restOperations = restOperations;
