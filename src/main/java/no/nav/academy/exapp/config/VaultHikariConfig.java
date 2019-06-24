@@ -38,7 +38,7 @@ public class VaultHikariConfig implements InitializingBean {
         container.addLeaseListener(leaseEvent -> {
             if (leaseEvent.getSource() == secret && leaseEvent instanceof SecretLeaseCreatedEvent) {
                 LOGGER.info("Roterer brukernavn/passord for : {}", leaseEvent.getSource().getPath());
-                Map<String, Object> secrets = SecretLeaseCreatedEvent.class.cast(leaseEvent).getSecrets();
+                Map<String, Object> secrets = ((SecretLeaseCreatedEvent) leaseEvent).getSecrets();
                 String username = secrets.get("username").toString();
                 String password = secrets.get("password").toString();
                 ds.setUsername(username);

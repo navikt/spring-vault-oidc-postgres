@@ -1,4 +1,3 @@
-
 package no.nav.academy.exapp.errorhandling;
 
 import static java.lang.String.format;

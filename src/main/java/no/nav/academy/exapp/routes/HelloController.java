@@ -2,7 +2,10 @@ package no.nav.academy.exapp.routes;
 
 import no.nav.academy.exapp.repositories.HelloRepository;
 import no.nav.academy.exapp.repositories.dto.JPAHelloMessage;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -14,8 +17,9 @@ public class HelloController {
     public HelloController(HelloRepository dao) {
         this.dao = dao;
     }
-    @RequestMapping("/hello")
-    String hello() {
+
+    @GetMapping("/hello")
+    String world() {
         return "Hello World";
     }
 
@@ -28,7 +32,7 @@ public class HelloController {
     }
 
     @PostMapping("/messages")
-    Boolean insertNewMessage(@RequestBody JPAHelloMessage s){
+    Boolean insertNewMessage(@RequestBody JPAHelloMessage s) {
         dao.saveAndFlush(s);
         return true;
     }

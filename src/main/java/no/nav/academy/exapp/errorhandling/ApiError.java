@@ -35,6 +35,15 @@ class ApiError {
         this.uuid = callId();
     }
 
+    private static List<String> messages(Throwable t, List<Object> objects) {
+        List<Object> messages = Lists.newArrayList(objects);
+        messages.add(getMostSpecificCause(t).getMessage());
+        return messages.stream()
+                .filter(Objects::nonNull)
+                .map(Object::toString)
+                .collect(toList());
+    }
+
     public String getUuid() {
         return uuid;
     }
@@ -49,15 +58,6 @@ class ApiError {
 
     public List<String> getMessages() {
         return messages;
-    }
-
-    private static List<String> messages(Throwable t, List<Object> objects) {
-        List<Object> messages = Lists.newArrayList(objects);
-        messages.add(getMostSpecificCause(t).getMessage());
-        return messages.stream()
-                .filter(Objects::nonNull)
-                .map(Object::toString)
-                .collect(toList());
     }
 
     @Override

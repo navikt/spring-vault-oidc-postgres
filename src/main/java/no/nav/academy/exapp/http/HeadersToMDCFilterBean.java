@@ -30,7 +30,7 @@ public class HeadersToMDCFilterBean extends GenericFilterBean {
 
     @Inject
     public HeadersToMDCFilterBean(CallIdGenerator generator,
-            @Value("${spring.application.name:fpinfo-historikk}") String applicationName) {
+                                  @Value("${spring.application.name:fpinfo-historikk}") String applicationName) {
         this.generator = generator;
         this.applicationName = applicationName;
     }
@@ -38,7 +38,7 @@ public class HeadersToMDCFilterBean extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        putValues(HttpServletRequest.class.cast(request));
+        putValues((HttpServletRequest) request);
         chain.doFilter(request, response);
     }
 

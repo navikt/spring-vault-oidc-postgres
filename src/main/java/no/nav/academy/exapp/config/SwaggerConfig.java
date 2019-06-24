@@ -16,6 +16,11 @@ import static java.util.stream.Collectors.toSet;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+    private static Set<String> protocols(String... schemes) {
+        return stream(schemes)
+                .collect(toSet());
+    }
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -24,10 +29,5 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
-    }
-
-    private static Set<String> protocols(String... schemes) {
-        return stream(schemes)
-                .collect(toSet());
     }
 }
