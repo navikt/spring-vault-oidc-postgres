@@ -17,7 +17,7 @@ Edit Configuration => Spring Boot
 * Active profiles: `dev`
 
 Merk, det er klassen i test-scope som skal startes, ikke den som ligger
-i default scope. Skriv inn strengene uten ``
+i default scope. Skriv inn strengene uten ``.
 
 
 ### Swagger
