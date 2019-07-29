@@ -1,4 +1,4 @@
-package no.nav.academy.exapp.repositories.dto;
+package no.nav.academy.exapp.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "hello")
-public class JPAHelloMessage {
+public class JPAHelloMessageDTO {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;
